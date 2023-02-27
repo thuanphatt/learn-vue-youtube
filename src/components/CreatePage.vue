@@ -59,6 +59,11 @@
 <script>
 
 export default {
+    emits: {
+        pageCreated(pageObj) {
+            return false
+        }
+    },
     props: ['pageCreated'],
     computed:
     {

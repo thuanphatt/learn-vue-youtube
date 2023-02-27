@@ -1,13 +1,16 @@
 <template lang="">
-    <div>
-        <a class="nav-link" :class="activeClass" :href="page.link.url"
-            :title="`This link goes to the ${page.link.text} page`"
-            >{{page.link.text}}</a>
-    </div>
+<div>
+    <li>
+        <a class="nav-link" :class="activeClass" :href="page.link.url" :title="`This link goes to the ${page.link.text} page`"
+        @click.prevent="$bus.$emit('navbarLinkActived', index)"
+        >{{page.link.text}}</a>
+    </li>
+</div>
 </template>
+
 <script>
 export default {
-    props: ['page', 'isActive'],
+    props: ['page', 'index', 'isActive'],
     computed: {
         activeClass() {
             return {
@@ -19,6 +22,7 @@ export default {
 
 }
 </script>
+
 <style scoped>
 .emphasize {
     text-decoration: underline !important;
