@@ -13,6 +13,11 @@
                 @actived = "$emit('actived')"
                 >
                 </navbar-link>
+                <router-link 
+                  to="/create"
+                  class="nav-link" 
+                  >Create Page
+                </router-link>
             </ul>
             <div class="btn btn-primary" @click.prevent="changeTheme()">
                 Toggle
