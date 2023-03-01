@@ -8,15 +8,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <navbar-link class="nav-item" v-for="(page, index) in publishedPages" :key="index" :page="page" :isActive="activePage === index"
-                :index= "index"
-                @actived = "$emit('actived')"
-                >
+                <navbar-link class="nav-item" v-for="(page, index) in publishedPages" :key="index" :page="page" :index="index">
                 </navbar-link>
-                <router-link 
-                  to="/create"
-                  class="nav-link" 
-                  >Create Page
+                <router-link to="/pages" class="nav-link" active-class="active" aria-current="page">Pages
                 </router-link>
             </ul>
             <div class="btn btn-primary" @click.prevent="changeTheme()">
@@ -33,18 +27,21 @@ export default {
   components: {
     NavbarLink
   },
+  inject: ['$pages'],
   created() {
     this.getThemeSettings()
+    this.pages = this.$pages.getAllPages()
   },
   computed: {
     publishedPages() {
       return this.pages.filter(p => p.published)
     }
   },
-  props: ['pages', 'activePage'],
+
   data() {
     return {
       theme: 'light',
+      data: []
     }
   },
   methods: {
