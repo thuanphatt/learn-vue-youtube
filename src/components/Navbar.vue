@@ -27,10 +27,15 @@ export default {
   components: {
     NavbarLink
   },
-  inject: ['$pages'],
+  inject: ['$pages', '$bus'],
   created() {
     this.getThemeSettings()
+
     this.pages = this.$pages.getAllPages()
+
+    this.$bus.$on('page-updated', () => {
+      this.pages = [...this.$pages.getAllPages()]
+    })
   },
   computed: {
     publishedPages() {

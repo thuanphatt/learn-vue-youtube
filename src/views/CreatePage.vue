@@ -3,23 +3,21 @@
        <div class="row">
         <div class="col">
             <form action="">
-            <div class="mb-3">
-                <label for="" class="form-label">
-                    Page Title
-                </label>
-                <input type="text" name="" id="" class="form-control"
-              v-model="pageTitle"
-                >
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Content</label>
-            <textarea name="" id=""  rows="5" class="form-control"
-            v-model="content"
-            ></textarea>
-            </div>
-            
-           
-        </form>
+                <div class="mb-3">
+                    <label for="" class="form-label">
+                        Page Title
+                    </label>
+                    <input type="text" name="" id="" class="form-control"
+                v-model="pageTitle"
+                    >
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Content</label>
+                    <textarea name="" id=""  rows="5" class="form-control"
+                    v-model="content"
+                    ></textarea>
+                </div>
+             </form>
         </div>
         <div class="col">
                 <div class="mb-3">

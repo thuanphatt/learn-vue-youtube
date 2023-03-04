@@ -8,4 +8,8 @@ export default {
   getSinglePage(index) {
     return pagesStore[index];
   },
+  editPage(index, page) {
+    pagesStore[index] = page;
+    localStorage.setItem(pagesKey, JSON.stringify(pagesStore));
+  },
 };
