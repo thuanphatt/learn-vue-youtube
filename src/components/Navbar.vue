@@ -1,7 +1,7 @@
 <template lang="">
 <div>
     <nav :class="[`navbar-${theme}`,`bg-${theme}`,'navbar', 'navbar-expand-lg']">
-        <a class="navbar-brand" href="index.html">My App</a>
+        <router-link class="navbar-brand" to="/0">My App</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,6 +34,9 @@ export default {
     this.pages = this.$pages.getAllPages()
 
     this.$bus.$on('page-updated', () => {
+      this.pages = [...this.$pages.getAllPages()]
+    })
+    this.$bus.$on('page-created', () => {
       this.pages = [...this.$pages.getAllPages()]
     })
   },
