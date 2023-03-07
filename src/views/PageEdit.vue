@@ -35,6 +35,7 @@
         <div class="mb-3">
             <button class="btn btn-primary me-2" @click.prevent="submit">Edit</button>
             <button class="btn btn-secondary me-2" @click.prevent="goToPageList">Cancel</button>
+            <button class="btn btn-danger" @click.prevent="deletePage">Delete</button>
         </div>
     </div>
 </div>
@@ -65,7 +66,13 @@ function submit() {
     })
     goToPageList()
 }
-
+function deletePage() {
+    pages.removePage(index)
+    bus.$emit('page-deleted', {
+        index
+    })
+    goToPageList()
+}
 function goToPageList() {
     router.push({ path: '/pages' })
 }
